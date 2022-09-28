@@ -1,6 +1,5 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import Head from 'next/head';
+import { Layout } from '../layouts';
 
 const Home = () => {
   return (
@@ -9,7 +8,9 @@ const Home = () => {
         <title>Homepage</title>
       </Head>
 
-      <main className="text-3xl font-bold underline">homepage</main>
+      <Layout>
+        <main>las asa</main>
+      </Layout>
     </>
   );
 };
