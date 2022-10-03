@@ -32,7 +32,7 @@ export const Header = () => {
           )}
         </button>
 
-        <ul className="flex flex-col justify-between items-start">
+        <ul className="flex lg:flex-col justify-between items-start">
           <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
             <Link href="https://www.facebook.com">
               <a className="Facebook">
