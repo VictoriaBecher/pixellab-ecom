@@ -11,7 +11,7 @@ export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
-      <section className="relative flex lg:flex-col justify-between items-center h-full z-10">
+      <section className="relative flex lg:flex-col justify-between items-center h-full z-10 lg:py-4">
         <Link href="/">
           <a title="Home">
             <FaApple size="32"></FaApple>
@@ -32,38 +32,48 @@ export const Header = () => {
           )}
         </button>
 
-        <ul className="flex lg:flex-col justify-between items-start">
-          <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
-            <Link href="https://www.facebook.com">
-              <a className="Facebook">
-                <FaFacebookF size="16"></FaFacebookF>
-              </a>
-            </Link>
-          </li>
+        <div className="hidden lg:block">
+          <ul className="flex lg:flex-col justify-between items-start">
+            <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
+              <Link href="https://www.facebook.com">
+                <a
+                  className="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebookF size="16"></FaFacebookF>
+                </a>
+              </Link>
+            </li>
 
-          <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
-            <Link href="https://www.twitter.com">
-              <a className="Twitter">
-                <BsTwitter size="16"></BsTwitter>
-              </a>
-            </Link>
-          </li>
+            <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
+              <Link href="https://www.twitter.com">
+                <a
+                  className="Twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <BsTwitter size="16"></BsTwitter>
+                </a>
+              </Link>
+            </li>
 
-          <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
-            <Link href="https://www.google.com">
-              <a className="Google">
-                <AiOutlineGooglePlus size="16"></AiOutlineGooglePlus>
-              </a>
-            </Link>
-          </li>
-        </ul>
+            <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
+              <Link href="https://www.google.com">
+                <a className="Google" target="_blank" rel="noopener noreferrer">
+                  <AiOutlineGooglePlus size="16"></AiOutlineGooglePlus>
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </section>
 
       {menuOpen ? (
         <nav
-          className={`absolute ${
-            menuOpen ? 'top-0' : '-top-full'
-          } left-0 h-screen w-screen  text-white bg-neutral-900`}
+          className={`absolute left-0 -top-full transition-transform transform-gpu ${
+            menuOpen ? 'translate-y-full' : ''
+          } h-screen w-screen lg:w-screen-1/3 text-white bg-neutral-900`}
         >
           <ul className="flex flex-col justify-center items-center uppercase h-full">
             <li className="hover:bg-white hover:text-neutral-900 rounded-full p-3">

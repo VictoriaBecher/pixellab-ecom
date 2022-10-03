@@ -8,7 +8,11 @@ module.exports = {
     // layouts folder omis intentionat
   ],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        'screen-1/3': '33vw',
+      },
+    },
   },
   plugins: [],
 };
