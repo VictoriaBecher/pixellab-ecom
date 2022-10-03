@@ -11,13 +11,13 @@ export const Layout = ({ children }) => {
     grid-template-areas:
       'header'
       'main-area';
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: 100px 1fr;
 
     @media (min-width: 1024px) {
       grid-template-areas:
         'header main-area'
         'header main-area';
-      grid-template-columns: 80px 1fr;
+      grid-template-columns: 100px 1fr;
       grid-template-rows: 1fr;
       height: 100vh;
     }
