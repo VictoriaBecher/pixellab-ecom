@@ -1,9 +1,19 @@
 import { css } from '@emotion/css';
 import Image from 'next/image';
+import { MdRemoveShoppingCart } from 'react-icons/md';
 
 export const ProductGrid = ({ products = [], perRow = 4 }) => {
   if (products.lenght <= 0) {
-    return <>There are no products</>;
+    return (
+      <Link href="/">
+        <div className="flex items-center justify-center hover:text-zinc-900 hover:bg-zinc-300 border ml-2 p-4 cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+          <MdRemoveShoppingCart size={32}></MdRemoveShoppingCart>
+          <a className="uppercase font-extrabold" title="Back to Shop">
+            There are no products in the Cart. Back to shop!
+          </a>
+        </div>
+      </Link>
+    );
   }
 
   const gridCss = css`
@@ -23,17 +33,19 @@ export const ProductGrid = ({ products = [], perRow = 4 }) => {
 
         return (
           <li key={index}>
-            <article className="w-full">
+            <article className="w-full transition ease-in-out delay-250 hover:-translate-y-2 duration-300">
               <header>
-                <div className="w-full h-72 bg-gray-200 text-center">
+                <div className="w-full h-72 text-center">
                   <img src={image} className="h-full inline"></img>
                 </div>
               </header>
 
               <section className="mt-8 text-center text-sm">
-                <h1 className="uppercase text-zink-400 mb-2">{title}</h1>
+                <h1 className="uppercase text-zink-400 mb-2 font-bold">
+                  {title}
+                </h1>
 
-                <div className="text-zinc-900 font-light">{price}</div>
+                <div className="text-zinc-900 font-extrabold">{price}</div>
               </section>
             </article>
           </li>

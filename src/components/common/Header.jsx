@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { CgMenu } from 'react-icons/cg';
+import { CgMenuRound } from 'react-icons/cg';
 import { FaApple } from 'react-icons/fa';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { FaFacebookF } from 'react-icons/fa';
@@ -14,21 +14,31 @@ export const Header = () => {
       <section className="relative flex lg:flex-col justify-between items-center h-full z-10 lg:py-4">
         <Link href="/">
           <a title="Home">
-            <FaApple size="32"></FaApple>
+            <FaApple
+              size="48"
+              className="hover:bg-white hover:text-neutral-900 rounded-full p-2"
+            ></FaApple>
           </a>
         </Link>
 
         <button
           title="Menu"
           type="button"
+          className="rounded-full"
           onClick={() => {
             setMenuOpen(!menuOpen);
           }}
         >
           {menuOpen ? (
-            <IoMdCloseCircle size="32"></IoMdCloseCircle>
+            <IoMdCloseCircle
+              size="48"
+              className="hover:bg-white hover:text-neutral-900 rounded-full p-2"
+            ></IoMdCloseCircle>
           ) : (
-            <CgMenu size="32"></CgMenu>
+            <CgMenuRound
+              size="48"
+              className="hover:bg-white hover:text-neutral-900 rounded-full p-2"
+            ></CgMenuRound>
           )}
         </button>
 
@@ -41,7 +51,7 @@ export const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaFacebookF size="16"></FaFacebookF>
+                  <FaFacebookF size="18"></FaFacebookF>
                 </a>
               </Link>
             </li>
@@ -53,7 +63,7 @@ export const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <BsTwitter size="16"></BsTwitter>
+                  <BsTwitter size="18"></BsTwitter>
                 </a>
               </Link>
             </li>
@@ -61,7 +71,7 @@ export const Header = () => {
             <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
               <Link href="https://www.google.com">
                 <a className="Google" target="_blank" rel="noopener noreferrer">
-                  <AiOutlineGooglePlus size="16"></AiOutlineGooglePlus>
+                  <AiOutlineGooglePlus size="18"></AiOutlineGooglePlus>
                 </a>
               </Link>
             </li>
@@ -73,24 +83,39 @@ export const Header = () => {
         <nav
           className={`absolute left-0 -top-full transition-transform transform-gpu ${
             menuOpen ? 'translate-y-full' : ''
-          } h-screen w-screen lg:w-screen-1/3 text-white bg-neutral-900`}
+          } h-screen w-screen lg:w-screen-1/3 text-white bg-neutral-900 font-extrabold text-lg`}
         >
           <ul className="flex flex-col justify-center items-center uppercase h-full">
-            <li className="hover:bg-white hover:text-neutral-900 rounded-full p-3">
+            <li className="p-3">
               <Link href="/">
-                <a title="Home">Home</a>
+                <a
+                  title="Home"
+                  className="hover:bg-white hover:text-neutral-900 rounded-full p-2"
+                >
+                  Home
+                </a>
               </Link>
             </li>
 
-            <li className="hover:bg-white hover:text-neutral-900 rounded-full p-3">
+            <li className="p-3">
               <Link href="/about">
-                <a title="About">About</a>
+                <a
+                  title="About"
+                  className="hover:bg-white hover:text-neutral-900 rounded-full p-2"
+                >
+                  About
+                </a>
               </Link>
             </li>
 
-            <li className="hover:bg-white hover:text-neutral-900 rounded-full p-3">
+            <li className="p-3">
               <Link href="/contact">
-                <a title="Contact">Contact</a>
+                <a
+                  title="Contact"
+                  className="hover:bg-white hover:text-neutral-900 rounded-full p-2"
+                >
+                  Contact
+                </a>
               </Link>
             </li>
           </ul>

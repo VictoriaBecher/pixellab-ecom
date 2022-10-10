@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FaSquare, FaThLarge } from 'react-icons/fa';
 
 const buttonClasses = `w-24 h-24 border-l border-zink-400 flex justify-center items-center`;
 
@@ -19,12 +20,13 @@ export const GridControls = ({ setPerRow = () => {} }) => {
           title="One per row"
           className={`${buttonClasses} ${
             itemsPerRow === '1/row' ? 'bg-black text-white' : ''
-          }`}
+          }  hover:text-zinc-900 hover:bg-zinc-300 flex flex-col`}
           onClick={() => {
             setItemsPerRow('1/row');
           }}
         >
-          1
+          <FaSquare size={15}></FaSquare>
+          <FaSquare size={15}></FaSquare>
         </button>
       </li>
 
@@ -33,12 +35,12 @@ export const GridControls = ({ setPerRow = () => {} }) => {
           title="Two per row"
           className={`${buttonClasses} ${
             itemsPerRow === '2/row' ? 'bg-black text-white' : ''
-          }`}
+          }  hover:text-zinc-900 hover:bg-zinc-300`}
           onClick={() => {
             setItemsPerRow('2/row');
           }}
         >
-          2
+          <FaThLarge size={32}></FaThLarge>
         </button>
       </li>
 
@@ -47,12 +49,15 @@ export const GridControls = ({ setPerRow = () => {} }) => {
           title="Four per row"
           className={`${buttonClasses} ${
             itemsPerRow === '4/row' ? 'bg-black text-white' : ''
-          }`}
+          }  hover:text-zinc-900 hover:bg-zinc-300`}
           onClick={() => {
             setItemsPerRow('4/row');
           }}
         >
-          4
+          <div>
+            <FaThLarge className="display: inline" size={32}></FaThLarge>{' '}
+            <FaThLarge className="display: inline" size={32}></FaThLarge>
+          </div>
         </button>
       </li>
     </ul>
