@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
 import Image from 'next/image';
+import Link from 'next/link';
 import { MdRemoveShoppingCart } from 'react-icons/md';
 
 export const ProductGrid = ({ products = [], perRow = 4 }) => {
