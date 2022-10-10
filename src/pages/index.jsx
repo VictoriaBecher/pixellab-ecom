@@ -74,6 +74,7 @@ const Home = () => {
                   const i = index + 1;
                   return (
                     <li
+                      key={index}
                       className={`${i === page ? 'text-lg' : ''}`}
                       onClick={() => {
                         if (i === page) {
