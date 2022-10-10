@@ -8,6 +8,14 @@ import { Layout } from '../layouts';
 const Home = () => {
   const [perRow, setPerRow] = useState(4);
   const [products, setProducts] = useState([]);
+  const [pagination, setPagination] = useState({
+    perPage: 4,
+    page: 1,
+    total: 20,
+  });
+
+  const { perPage, page, total } = pagination;
+  const pagesCount = Math.ceil(total / perPage);
 
   // fara dependinte in array [] effectul ruleaza la
   // prima executie a functiei (ex Home)
@@ -29,7 +37,7 @@ const Home = () => {
   // })();
 
   useEffect(() => {
-    fetch(`${baseUrl}/products?limit=12`)
+    fetch(`${baseUrl}/products?limit=${perPage}`)
       .then((response) => {
         return response.json();
       })
@@ -56,6 +64,33 @@ const Home = () => {
 
           <section className="mt-16">
             <ProductGrid products={products} perRow={perRow}></ProductGrid>
+          </section>
+
+          <section>
+            <ul className="flex gap-2">
+              {Array(pagesCount)
+                .fill('_')
+                .map((_, index) => {
+                  const i = index + 1;
+                  return (
+                    <li
+                      className={`${i === page ? 'text-lg' : ''}`}
+                      onClick={() => {
+                        if (i === page) {
+                          return;
+                        }
+
+                        setPagination({
+                          ...pagination,
+                          page: i,
+                        });
+                      }}
+                    >
+                      {i}
+                    </li>
+                  );
+                })}
+            </ul>
           </section>
         </main>
       </Layout>

@@ -1,4 +1,4 @@
-import { FooterTop } from './FooterTop';
+import { FooterMoreAbout } from './FooterMoreAbout';
 import { IoIosArrowDropup } from 'react-icons/io';
 
 export const Footer = () => {
@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <>
       <section className="container px-4 lg:px-0 mx-auto py-8">
-        <FooterTop></FooterTop>
+        <FooterMoreAbout></FooterMoreAbout>
       </section>
 
       <div className="border border-t border-gray-600"></div>
@@ -26,7 +26,7 @@ export const Footer = () => {
       </div>
 
       <section className="container lg:px-0 mx-auto py-4 font-bold">
-        <p className="text-center">2018 Created By Unvab</p>
+        <p className="text-center">2018 Created By Victoria</p>
       </section>
     </>
   );

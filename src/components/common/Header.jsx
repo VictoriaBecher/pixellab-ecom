@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { CgMenuRound } from 'react-icons/cg';
-import { FaApple } from 'react-icons/fa';
+import { FcNightLandscape } from 'react-icons/fc';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { FaFacebookF } from 'react-icons/fa';
 import { BsTwitter } from 'react-icons/bs';
@@ -14,10 +14,10 @@ export const Header = () => {
       <section className="relative flex lg:flex-col justify-between items-center h-full z-10 lg:py-4">
         <Link href="/">
           <a title="Home">
-            <FaApple
+            <FcNightLandscape
               size="48"
               className="hover:bg-white hover:text-neutral-900 rounded-full p-2"
-            ></FaApple>
+            ></FcNightLandscape>
           </a>
         </Link>
 
@@ -45,35 +45,36 @@ export const Header = () => {
         <div className="hidden lg:block">
           <ul className="flex lg:flex-col justify-between items-start">
             <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
-              <Link href="https://www.facebook.com">
-                <a
-                  className="Facebook"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaFacebookF size="18"></FaFacebookF>
-                </a>
-              </Link>
+              <a
+                className="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.facebook.com"
+              >
+                <FaFacebookF size="18"></FaFacebookF>
+              </a>
             </li>
 
             <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
-              <Link href="https://www.twitter.com">
-                <a
-                  className="Twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <BsTwitter size="18"></BsTwitter>
-                </a>
-              </Link>
+              <a
+                className="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.twitter.com"
+              >
+                <BsTwitter size="18"></BsTwitter>
+              </a>
             </li>
 
             <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
-              <Link href="https://www.google.com">
-                <a className="Google" target="_blank" rel="noopener noreferrer">
-                  <AiOutlineGooglePlus size="18"></AiOutlineGooglePlus>
-                </a>
-              </Link>
+              <a
+                className="Google"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com"
+              >
+                <AiOutlineGooglePlus size="18"></AiOutlineGooglePlus>
+              </a>
             </li>
           </ul>
         </div>
