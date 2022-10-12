@@ -4,8 +4,14 @@ import { ContinueShopping } from '../components/cart/ContinueShopping';
 import { Layout } from '../layouts';
 import { MdRemoveShoppingCart } from 'react-icons/md';
 import Link from 'next/link';
+import { useCart } from '../hooks';
 
 const Cart = () => {
+  // const cart = useCart(2);
+
+  if (cart === null) {
+    return <></>;
+  }
   return (
     <>
       <Head>
@@ -19,12 +25,10 @@ const Cart = () => {
               <ContinueShopping></ContinueShopping>
             </div>
 
-            <CartControl></CartControl>
+            <CartControl cart={cart}></CartControl>
           </header>
 
-          <section className="mt-16 text-zinc-400 font-bold">
-            cart goes here
-          </section>
+          <section className="mt-16 text-zinc-400 font-bold">{cart.id}</section>
         </main>
       </Layout>
     </>

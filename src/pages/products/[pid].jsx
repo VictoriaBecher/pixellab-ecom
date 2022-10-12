@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Layout } from '../../layouts';
 import { baseUrl } from '../..';
 import { CartControl, ContinueShopping } from '../../components/cart';
+import { BiLoaderCircle } from 'react-icons/bi';
 
 const ProductPage = () => {
   const router = useRouter();
@@ -27,7 +28,11 @@ const ProductPage = () => {
   }, [pid]);
 
   if (product === null) {
-    return <></>;
+    return (
+      <div className="flex h-screen w-screen justify-center items-center">
+        <BiLoaderCircle className="animate-spin" size="48"></BiLoaderCircle>
+      </div>
+    );
   }
 
   const { id, title, description, price, image } = product;
@@ -39,7 +44,7 @@ const ProductPage = () => {
   return (
     <>
       <Head>
-        <title>Product Page</title>
+        <title>{title}</title>
       </Head>
 
       <Layout>
@@ -86,8 +91,7 @@ const ProductPage = () => {
             </header>
           </section>
           <section className="border-t"></section>
-          <section className="container px-4 lg:px-0 mx-auto">z</section>
-          product {title} with {id}
+          <section className="container px-4 lg:px-0 mx-auto">jos</section>
         </main>
       </Layout>
     </>

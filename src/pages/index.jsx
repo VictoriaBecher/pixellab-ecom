@@ -1,21 +1,17 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { baseUrl } from '..';
+// import { baseUrl } from '..';
 import { CartControl } from '../components/cart';
-import { GridControls, ProductGrid } from '../components/catalog';
+import { GridControls, Pagination, ProductGrid } from '../components/catalog';
+import { useProducts } from '../hooks';
 import { Layout } from '../layouts';
 
 const Home = () => {
   const [perRow, setPerRow] = useState(4);
-  const [products, setProducts] = useState([]);
-  const [pagination, setPagination] = useState({
-    perPage: 4,
-    page: 1,
-    total: 20,
-  });
+  const [products] = useProducts();
 
-  const { perPage, page, total } = pagination;
-  const pagesCount = Math.ceil(total / perPage);
+  const [paginatedProducts, setPaginatedProducts] = useState([]);
+  // const cart = useCart(2);
 
   // fara dependinte in array [] effectul ruleaza la
   // prima executie a functiei (ex Home)
@@ -36,17 +32,17 @@ const Home = () => {
   //   console.log(result);
   // })();
 
-  useEffect(() => {
-    fetch(`${baseUrl}/products?limit=${perPage}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((result) => {
-        setProducts(result);
-        // console.log(result);
-        // never mutate state
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${baseUrl}/products?limit`)
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((result) => {
+  //       setProducts(result);
+  //       // console.log(result);
+  //       // never mutate state
+  //     });
+  // }, []);
 
   return (
     <>
@@ -59,39 +55,21 @@ const Home = () => {
           <header className="flex justify-end text-zinc-400">
             <GridControls setPerRow={setPerRow}></GridControls>
 
-            <CartControl></CartControl>
+            <CartControl cart={cart}></CartControl>
           </header>
 
           <section className="mt-16">
-            <ProductGrid products={products} perRow={perRow}></ProductGrid>
+            <ProductGrid
+              products={paginatedProducts}
+              perRow={perRow}
+            ></ProductGrid>
           </section>
 
           <section>
-            <ul className="flex gap-2">
-              {Array(pagesCount)
-                .fill('_')
-                .map((_, index) => {
-                  const i = index + 1;
-                  return (
-                    <li
-                      key={index}
-                      className={`${i === page ? 'text-lg' : ''}`}
-                      onClick={() => {
-                        if (i === page) {
-                          return;
-                        }
-
-                        setPagination({
-                          ...pagination,
-                          page: i,
-                        });
-                      }}
-                    >
-                      {i}
-                    </li>
-                  );
-                })}
-            </ul>
+            <Pagination
+              products={products}
+              setPaginatedProducts={setPaginatedProducts}
+            ></Pagination>
           </section>
         </main>
       </Layout>
