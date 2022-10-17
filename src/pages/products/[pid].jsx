@@ -5,8 +5,8 @@ import { useRouter } from 'next/router';
 import { Layout } from '../../layouts';
 import { CartControl, ContinueShopping } from '../../components/cart';
 import { BiLoaderCircle } from 'react-icons/bi';
-import { ProductReview } from '../ProductReview';
-import { RelatedProducts } from '../../components/catalog';
+
+import { RelatedProducts, ProductReview } from '../../components/catalog';
 import { useProduct } from '../../hooks';
 
 const ProductPage = () => {
