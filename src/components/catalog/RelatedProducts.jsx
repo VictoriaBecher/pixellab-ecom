@@ -14,7 +14,7 @@ export const RelatedProducts = ({ category, relatedId }) => {
       .then((result) => {
         setRelatedProducts(result);
       });
-  }, []);
+  }, [setRelatedProducts]);
 
   if (relatedProducts === null) {
     return <></>;

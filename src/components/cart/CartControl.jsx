@@ -1,15 +1,20 @@
 import Link from 'next/link';
+import { useContext, useState } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { AppContext } from '../../pages/_app';
 
-export const CartControl = ({ cart = null }) => {
+export const CartControl = () => {
+  const { cart } = useContext(AppContext);
+
   if (cart === null) {
     return <></>;
   }
+
   const { products } = cart;
+
   const cartQty = products.reduce((cartQty, product) => {
     const { quantity } = product;
     cartQty += quantity;
-
     return cartQty;
   }, 0);
 

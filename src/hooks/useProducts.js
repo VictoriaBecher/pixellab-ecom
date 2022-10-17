@@ -14,5 +14,5 @@ export const useProducts = (limit = 20) => {
       });
   }, []);
 
-  return [products];
+  return [products, setProducts];
 };

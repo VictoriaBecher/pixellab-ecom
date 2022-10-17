@@ -9,9 +9,12 @@ export const ProductReview = ({ stars, count }) => {
           .fill('_')
           .map((_, index) => {
             return index < Math.round(stars) ? (
-              <BsFillStarFill className="text-zinc-700"></BsFillStarFill>
+              <BsFillStarFill
+                className="text-zinc-700"
+                key={index}
+              ></BsFillStarFill>
             ) : (
-              <FaRegStar className="text-zinc-700"></FaRegStar>
+              <FaRegStar className="text-zinc-700" key={index}></FaRegStar>
             );
           })}
       </div>

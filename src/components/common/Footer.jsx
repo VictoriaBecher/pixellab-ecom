@@ -26,7 +26,7 @@ export const Footer = () => {
       </div>
 
       <section className="container lg:px-0 mx-auto py-4 font-bold">
-        <p className="text-center">2018 Created By Victoria</p>
+        <p className="text-center">2022 Created By Victoria</p>
       </section>
     </>
   );
