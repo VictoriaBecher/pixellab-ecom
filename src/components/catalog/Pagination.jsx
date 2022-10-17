@@ -38,7 +38,11 @@ export const Pagination = ({ products, setPaginatedProducts }) => {
           return (
             <li
               key={index}
-              className={`${i === page ? 'text-lg' : ''}`}
+              className={`${
+                i === page
+                  ? 'font-extrabold text-zinc-900 bg-zinc-300'
+                  : 'text-zinc-300 font-semibold'
+              } cursor-pointer border p-2`}
               onClick={() => {
                 if (i === page) {
                   return;

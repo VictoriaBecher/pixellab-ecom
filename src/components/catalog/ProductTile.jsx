@@ -19,7 +19,7 @@ export const ProductTile = ({ product }) => {
                 width={200}
                 height={200}
                 objectFit="contain"
-                className="inline"
+                className="inline -z-10"
               ></Image>
             </a>
           </Link>
@@ -29,7 +29,7 @@ export const ProductTile = ({ product }) => {
       <section className="mt-8 text-center text-sm">
         <h1 className="uppercase text-zinc-400 mb-2">{title}</h1>
 
-        <div className="text-zinc-900 font-light">{formattedPrice}</div>
+        <div className="text-zinc-900 font-bold">{formattedPrice}</div>
       </section>
     </article>
   );

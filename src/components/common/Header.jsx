@@ -44,9 +44,9 @@ export const Header = () => {
 
         <div className="hidden lg:block">
           <ul className="flex lg:flex-col justify-between items-start">
-            <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
+            <li className="hover:bg-white hover:text-neutral-900 rounded-full ">
               <a
-                className="Facebook"
+                className="Facebook display: block w-full h-full p-2"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.facebook.com"
@@ -55,9 +55,9 @@ export const Header = () => {
               </a>
             </li>
 
-            <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
+            <li className="hover:bg-white hover:text-neutral-900 rounded-full">
               <a
-                className="Twitter"
+                className="Twitter display: block w-full h-full p-2"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.twitter.com"
@@ -66,9 +66,9 @@ export const Header = () => {
               </a>
             </li>
 
-            <li className="hover:bg-white hover:text-neutral-900 rounded-full p-2">
+            <li className="hover:bg-white hover:text-neutral-900 rounded-full">
               <a
-                className="Google"
+                className="Google display: block w-full h-full p-2"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.google.com"

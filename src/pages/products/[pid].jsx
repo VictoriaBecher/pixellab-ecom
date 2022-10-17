@@ -7,6 +7,8 @@ import { Layout } from '../../layouts';
 import { baseUrl } from '../..';
 import { CartControl, ContinueShopping } from '../../components/cart';
 import { BiLoaderCircle } from 'react-icons/bi';
+import { ProductReview } from '../ProductReview';
+import { RelatedProducts } from '../../components/catalog';
 
 const ProductPage = () => {
   const router = useRouter();
@@ -35,7 +37,7 @@ const ProductPage = () => {
     );
   }
 
-  const { id, title, description, price, image } = product;
+  const { id, title, description, price, image, rating, category } = product;
   const formattedPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -57,7 +59,7 @@ const ProductPage = () => {
               <CartControl></CartControl>
             </div>
           </header>
-          <section className="container mt-16 px-4 lg:px-0 mx-auto grid gap-8 grid-cols-12">
+          <section className="container mt-16 px-4 lg:px-0 mx-auto grid gap-8 grid-cols-12 mb-6">
             <div className="col-start-1 col-span-5">
               <img
                 alt={`Image of ${title}`}
@@ -68,6 +70,10 @@ const ProductPage = () => {
 
             <header className="col-start-7 col-span-6 pt-12">
               <h1 className="text-2xl uppercase font-bold">{title}</h1>
+              <ProductReview
+                stars={rating.rate}
+                count={rating.count}
+              ></ProductReview>
               <p className="mt-12">{description}</p>
 
               <div className="mt-12">
@@ -91,7 +97,13 @@ const ProductPage = () => {
             </header>
           </section>
           <section className="border-t"></section>
-          <section className="container px-4 lg:px-0 mx-auto">jos</section>
+          <section className="container px-4 lg:px-0 mx-auto">
+            <h1 className="uppercase text-center my-3">Related products</h1>
+            <RelatedProducts
+              category={category}
+              relatedId={id}
+            ></RelatedProducts>
+          </section>
         </main>
       </Layout>
     </>

@@ -55,7 +55,8 @@ const Home = () => {
           <header className="flex justify-end text-zinc-400">
             <GridControls setPerRow={setPerRow}></GridControls>
 
-            <CartControl cart={cart}></CartControl>
+            {/* <CartControl cart={cart}></CartControl> */}
+            <CartControl></CartControl>
           </header>
 
           <section className="mt-16">

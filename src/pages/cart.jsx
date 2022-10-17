@@ -9,9 +9,9 @@ import { useCart } from '../hooks';
 const Cart = () => {
   // const cart = useCart(2);
 
-  if (cart === null) {
-    return <></>;
-  }
+  // if (cart === null) {
+  //   return <></>;
+  // }
   return (
     <>
       <Head>
@@ -25,10 +25,13 @@ const Cart = () => {
               <ContinueShopping></ContinueShopping>
             </div>
 
-            <CartControl cart={cart}></CartControl>
+            {/* <CartControl cart={cart}></CartControl> */}
+            <CartControl></CartControl>
           </header>
-
-          <section className="mt-16 text-zinc-400 font-bold">{cart.id}</section>
+          <section className="mt-16 text-zinc-400 font-bold">
+            Cart id - de modificat
+          </section>
+          {/* <section className="mt-16 text-zinc-400 font-bold">{cart.id}</section> */}
         </main>
       </Layout>
     </>
