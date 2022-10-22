@@ -53,7 +53,10 @@ const Home = () => {
       <Layout>
         <main className="container px-4 lg:px-0 mx-auto">
           <header className="flex justify-end text-zinc-400">
-            <GridControls setPerRow={setPerRow}></GridControls>
+            <GridControls
+              setPerRow={setPerRow}
+              className="hidden"
+            ></GridControls>
 
             {/* <CartControl cart={cart}></CartControl> */}
             <CartControl></CartControl>

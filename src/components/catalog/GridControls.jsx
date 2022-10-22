@@ -14,7 +14,7 @@ export const GridControls = ({ setPerRow = () => {} }) => {
   }, [itemsPerRow, setPerRow]);
 
   return (
-    <ul className="flex border border-zinc-400 border-l-0 border-r-0">
+    <ul className="hidden border border-zinc-400 border-l-0 border-r-0 md:flex">
       <li>
         <button
           title="One per row"

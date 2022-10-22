@@ -6,7 +6,11 @@ import { Layout } from '../../layouts';
 import { CartControl, ContinueShopping } from '../../components/cart';
 import { BiLoaderCircle } from 'react-icons/bi';
 
-import { RelatedProducts, ProductReview } from '../../components/catalog';
+import {
+  RelatedProducts,
+  ProductReview,
+  ProductNotFound,
+} from '../../components/catalog';
 import { useProduct } from '../../hooks';
 
 const ProductPage = () => {
@@ -23,7 +27,7 @@ const ProductPage = () => {
   }
 
   if (status === '404') {
-    return <span>Product not found</span>;
+    return <ProductNotFound></ProductNotFound>;
   }
 
   const { id, title, description, price, image, rating, category } = product;
