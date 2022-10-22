@@ -36,6 +36,7 @@ export const RelatedProducts = ({ category, relatedId }) => {
                 <Link href={`/products/${id}`}>
                   <a title={title}>
                     <Image
+                      alt={title}
                       src={image}
                       width={250}
                       height={250}

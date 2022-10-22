@@ -12,6 +12,7 @@ import {
   ProductNotFound,
 } from '../../components/catalog';
 import { useProduct } from '../../hooks';
+import Image from 'next/image';
 
 const ProductPage = () => {
   const router = useRouter();
@@ -54,11 +55,14 @@ const ProductPage = () => {
           </header>
           <section className="container mt-16 px-4 lg:px-0 mx-auto grid gap-8 grid-cols-12 mb-6">
             <div className="col-start-1 col-span-5">
-              <img
+              <Image
                 alt={`Image of ${title}`}
                 className="block w-full"
                 src={image}
-              ></img>
+                width={600}
+                height={600}
+                objectFit="contain"
+              ></Image>
             </div>
 
             <header className="col-start-7 col-span-6 pt-12">

@@ -15,6 +15,7 @@ export const ProductTile = ({ product }) => {
           <Link href={`/products/${id}`}>
             <a title={title}>
               <Image
+                alt={title}
                 src={image}
                 width={200}
                 height={200}
