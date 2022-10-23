@@ -42,7 +42,7 @@ export const CartLineItem = ({ product }) => {
 
         <div>
           <Link href={`/products/${id}`}>
-            <a title="title" className="w-2/4">
+            <a title="title" className="w-2/4 text-sm md:text-base">
               {title}
             </a>
           </Link>
@@ -52,9 +52,9 @@ export const CartLineItem = ({ product }) => {
           ></ProductReview>
         </div>
       </td>
-      <td className="w-1/6">{formattedPriceOneProduct}</td>
-      <td className="w-1/6">{quantity}</td>
-      <td className="w-1/6">{formattedPrice}</td>
+      <td className="w-1/6 text-sm md:text-base">{formattedPriceOneProduct}</td>
+      <td className="w-1/6 px-5 md:p-0 text-sm md:text-base ">{quantity}</td>
+      <td className="w-1/6 text-sm md:text-base">{formattedPrice}</td>
     </tr>
   );
 };

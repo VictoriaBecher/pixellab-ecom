@@ -20,12 +20,12 @@ export const CartTotals = () => {
           <li className="mt-6 border-b pb-4">
             <span className="text-zinc-800">Shipping:</span>
             <form className="flex flex-col justify-center">
-              <div className="flex gap-3 pl-20">
+              <div className="flex gap-3 pl-3 md:pl-20">
                 <input type="checkbox" name="standard" id="standard" checked />
                 <label htmlFor="standard">Standard (free)</label>
               </div>
 
-              <div className="flex gap-3 pl-20">
+              <div className="flex gap-3 pl-3 md:pl-20">
                 <input type="checkbox" name="express" id="express" />
                 <label htmlFor="express">Express ($49.00)</label>
               </div>
