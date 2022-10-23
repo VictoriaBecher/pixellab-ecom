@@ -8,7 +8,7 @@ import { Layout } from '../layouts';
 
 const Home = () => {
   const [perRow, setPerRow] = useState(4);
-  const [products] = useProducts();
+  const { products, limit } = useProducts();
 
   const [paginatedProducts, setPaginatedProducts] = useState([]);
   // const cart = useCart(2);
