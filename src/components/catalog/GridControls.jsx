@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { FaSquare, FaThLarge } from 'react-icons/fa';
+import { useIsMobile, useLocalStorage } from '../../hooks';
 
 const buttonClasses = `w-24 h-24 border-l border-zink-400 flex justify-center items-center`;
 
 export const GridControls = ({ setPerRow = () => {} }) => {
-  const [itemsPerRow, setItemsPerRow] = useState('4/row');
+  const [itemsPerRow, setItemsPerRow] = useLocalStorage('perRow', '4/row');
+  const isMobile = useIsMobile();
 
   // de fiecare data cand itemsPerRow se schimba ruleaza acest callback
   useEffect(() => {
@@ -13,8 +15,12 @@ export const GridControls = ({ setPerRow = () => {} }) => {
     setPerRow(perRow);
   }, [itemsPerRow, setPerRow]);
 
+  if (isMobile === true) {
+    return <></>;
+  }
+
   return (
-    <ul className="hidden border border-zinc-400 border-l-0 border-r-0 md:flex">
+    <ul className="flex border border-zinc-400 border-l-0 border-r-0">
       <li>
         <button
           title="One per row"
