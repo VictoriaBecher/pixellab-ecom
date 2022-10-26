@@ -57,7 +57,7 @@ const ProductPage = () => {
             <div className="col-start-1 col-span-5">
               <Image
                 alt={`Image of ${title}`}
-                className="block w-full"
+                className="inline -z-10 w-full"
                 src={image}
                 width={600}
                 height={600}
