@@ -5,3 +5,5 @@ export * from './ProductTile';
 export * from './RelatedProducts';
 export * from './ProductReview';
 export * from './ProductNotFound';
+export * from './infinitePagination';
+export * from './AddToCart';

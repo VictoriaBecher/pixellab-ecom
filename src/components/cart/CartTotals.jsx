@@ -38,7 +38,10 @@ export const CartTotals = () => {
         </ul>
 
         <button
-          type="submit"
+          onClick={() => {
+            console.log(cart.products);
+          }}
+          type="button"
           title="Proceed to Checkout"
           className="uppercase flex bg-zinc-700 w-full  text-zinc-300 hover:bg-zinc-300 hover:text-zinc-700  justify-center py-3 mt-5"
         >

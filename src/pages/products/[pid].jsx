@@ -10,6 +10,7 @@ import {
   RelatedProducts,
   ProductReview,
   ProductNotFound,
+  AddToCart,
 } from '../../components/catalog';
 import { useProduct } from '../../hooks';
 import Image from 'next/image';
@@ -79,21 +80,12 @@ const ProductPage = () => {
                 </span>
               </div>
 
-              <div className="mt-12">
-                <button
-                  className="bg-black text-white uppercasefont-medium text-sm py-3 px-6  hover:text-zinc-900 hover:bg-zinc-300 transition-colors"
-                  title={`Add ${title} to cart`}
-                  type="button"
-                  onClick={() => {
-                    alert(id);
-                  }}
-                >
-                  Add to Cart
-                </button>
-              </div>
+              <div className="mt-12"></div>
             </header>
           </section>
-          <section className="border-t"></section>
+          <section className="border-t">
+            <AddToCart product={product}></AddToCart>
+          </section>
           <section className="container px-4 lg:px-0 mx-auto">
             <h1 className="uppercase text-center my-3">Related products</h1>
             <RelatedProducts
