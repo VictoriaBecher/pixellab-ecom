@@ -20,13 +20,15 @@ export const CartControl = () => {
 
   return (
     <ul className="border border-zinc-400">
-      <li>
+      <li className="relative">
         <Link href="/cart">
           <a
             className="w-24 h-24 flex justify-center items-center hover:text-zinc-900 hover:bg-zinc-300"
             title="Cart"
           >
-            {cartQty}
+            <span className="absolute top-5 right-5 bg-zinc-200 text-zinc-800 p-1 rounded-full text-sm font-extrabold">
+              {cartQty}
+            </span>
             <AiOutlineShoppingCart size="32"></AiOutlineShoppingCart>
           </a>
         </Link>

@@ -81,11 +81,11 @@ const ProductPage = () => {
               </div>
 
               <div className="mt-12"></div>
+
+              <AddToCart product={product}></AddToCart>
             </header>
           </section>
-          <section className="border-t">
-            <AddToCart product={product}></AddToCart>
-          </section>
+          <section className="border-t"></section>
           <section className="container px-4 lg:px-0 mx-auto">
             <h1 className="uppercase text-center my-3">Related products</h1>
             <RelatedProducts

@@ -31,7 +31,7 @@ export const ProductGrid = ({ products = [], perRow = 4 }) => {
     <ul className={gridCss}>
       {products.map((product, index) => {
         return (
-          <li key={index}>
+          <li key={product.id}>
             <ProductTile product={product}></ProductTile>
           </li>
         );
