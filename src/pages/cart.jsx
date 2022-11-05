@@ -11,6 +11,17 @@ import { MdRemoveShoppingCart } from 'react-icons/md';
 import Link from 'next/link';
 import { useCart } from '../hooks';
 
+// import { useContext } from 'react';
+// import { AppContext } from '../../pages/_app';
+
+// export const CartTotals = () => {
+//   const { cart } = useContext(AppContext);
+//   console.log(cart);
+//   if (cart === null) return <></>;
+
+//   if (cart.products.length === 0)
+//     return <div className="text-2xl ">There are no products in cart</div>;
+
 const Cart = () => {
   const cart = useCart(2);
 
@@ -34,13 +45,13 @@ const Cart = () => {
             <CartControl cart={cart}></CartControl>
           </header>
 
-          <section className="mt-16 text-zinc-400 font-bold grid grid-cols-12 gap-8">
-            <div className="col-span-8">
+          <section className="mt-16 text-zinc-400 font-bold grid lg:grid-cols-12 gap-8">
+            <div className="grid lg:col-span-8">
               <CartItems></CartItems>
               <CartVoucher></CartVoucher>
             </div>
 
-            <aside className="col-span-4">
+            <aside className="d-block md:col-span-4">
               <CartTotals></CartTotals>
             </aside>
           </section>

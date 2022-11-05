@@ -5,7 +5,6 @@ export const useIsMobile = () => {
 
   useEffect(() => {
     const handler = (event) => {
-      console.log('sth');
       setIsMobile(!event.matches);
     };
 

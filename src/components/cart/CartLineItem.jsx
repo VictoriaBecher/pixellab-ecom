@@ -4,18 +4,28 @@ import { useContext } from 'react';
 import { useProduct } from '../../hooks';
 import { AppContext } from '../../pages/_app';
 import { ProductReview } from '../catalog';
+import { BsTrashFill } from 'react-icons/bs';
+import { baseUrl } from '../..';
 
 export const CartLineItem = ({ product }) => {
   const { quantity, productId } = product;
   const { product: cartItem } = useProduct(productId);
   const isLoaded = cartItem !== null;
-  const { alterProduct } = useContext(AppContext);
+  const { cart, alterProduct } = useContext(AppContext);
 
   if (!isLoaded) {
     return <></>;
   }
 
+  const { id: cartId, products } = cart;
   const { image, price, id, title, rating } = cartItem;
+
+  let quantityIsOne = false;
+  for (let i = 0; i < products.length; i++) {
+    if (quantity === 1) {
+      quantityIsOne = true;
+    }
+  }
 
   const formattedPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -27,8 +37,43 @@ export const CartLineItem = ({ product }) => {
     currency: 'USD',
   }).format(price);
 
+  const newCart = {};
+
+  const onClick = () => {
+    fetch(`${baseUrl}/carts/${cartId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application.json',
+      },
+      body: JSON.stringify(newCart),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((_) => {
+        alterProduct(productId, -quantity);
+      });
+  };
+
   return (
     <tr className="flex justify-between items-center w-full border-b p-2">
+      <td>
+        <button
+          type="button"
+          title="Remove from cart"
+          className="p-2 bg-zinc-300 text-white border hover:bg-zinc-600 rounded-full text-sm"
+          onClick={() => {
+            const confirmDelete = window.confirm(
+              `Are you sure you wish to delete product: ${title} from cart?`,
+            );
+
+            if (confirmDelete) alterProduct(id, -quantity);
+            else return;
+          }}
+        >
+          X
+        </button>
+      </td>
       <td className="flex  w-3/6">
         <Link href={`/products/${id}`}>
           <a title={title}>
@@ -43,7 +88,7 @@ export const CartLineItem = ({ product }) => {
           </a>
         </Link>
 
-        <div>
+        <div className="ml-2">
           <Link href={`/products/${id}`}>
             <a title="title" className="w-2/4 text-sm md:text-base">
               {title}
@@ -56,8 +101,20 @@ export const CartLineItem = ({ product }) => {
         </div>
       </td>
       <td className="w-1/6 text-sm md:text-base">{formattedPriceOneProduct}</td>
+      <td>
+        {quantityIsOne ? (
+          <button title="remove from cart" type="button" onClick={onClick}>
+            <BsTrashFill
+              size={28}
+              className="mx-5  hover:bg-zinc-600 hover:text-white p-1"
+            ></BsTrashFill>
+          </button>
+        ) : (
+          <></>
+        )}
+      </td>
       <td className="w-1/6 px-5 md:p-0 text-sm md:text-base md: text-center">
-        <div className="border">
+        <div className="border flex flex-col lg:flex-row items-center justify-center">
           <button
             type="button"
             title="Decrease"
@@ -81,7 +138,7 @@ export const CartLineItem = ({ product }) => {
           </button>
         </div>
       </td>
-      <td className="w-1/6 text-sm md:text-base">{formattedPrice}</td>
+      <td className="w-1/6 text-sm md:text-base ml-2">{formattedPrice}</td>
     </tr>
   );
 };

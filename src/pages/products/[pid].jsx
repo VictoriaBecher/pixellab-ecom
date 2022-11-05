@@ -11,6 +11,7 @@ import {
   ProductReview,
   ProductNotFound,
   AddToCart,
+  RemoveFromCart,
 } from '../../components/catalog';
 import { useProduct } from '../../hooks';
 import Image from 'next/image';
@@ -80,9 +81,10 @@ const ProductPage = () => {
                 </span>
               </div>
 
-              <div className="mt-12"></div>
-
-              <AddToCart product={product}></AddToCart>
+              <div className="mt-12 flex items-center">
+                <AddToCart product={product}></AddToCart>
+                <RemoveFromCart product={product}></RemoveFromCart>
+              </div>
             </header>
           </section>
           <section className="border-t"></section>

@@ -7,3 +7,4 @@ export * from './ProductReview';
 export * from './ProductNotFound';
 export * from './infinitePagination';
 export * from './AddToCart';
+export * from './RemoveFromCart';

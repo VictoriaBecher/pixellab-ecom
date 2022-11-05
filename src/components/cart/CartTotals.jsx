@@ -3,6 +3,10 @@ import { AppContext } from '../../pages/_app';
 
 export const CartTotals = () => {
   const { cart } = useContext(AppContext);
+  console.log(cart);
+  if (cart === null) return <></>;
+
+  if (cart.products.length === 0) return <></>;
 
   return (
     <>
@@ -38,9 +42,7 @@ export const CartTotals = () => {
         </ul>
 
         <button
-          onClick={() => {
-            console.log(cart.products);
-          }}
+          onClick={() => {}}
           type="button"
           title="Proceed to Checkout"
           className="uppercase flex bg-zinc-700 w-full  text-zinc-300 hover:bg-zinc-300 hover:text-zinc-700  justify-center py-3 mt-5"
