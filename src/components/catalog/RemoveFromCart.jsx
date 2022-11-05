@@ -28,10 +28,6 @@ export const RemoveFromCart = ({ product }) => {
   const onClick = () => {
     fetch(`${baseUrl}/carts/${cartId}`, {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application.json',
-      },
-      body: JSON.stringify(newCart),
     })
       .then((response) => {
         return response.json();
