@@ -57,7 +57,7 @@ export const CartLineItem = ({ product }) => {
         <button
           type="button"
           title="Remove from cart"
-          className="p-2 bg-zinc-300 text-white border hover:bg-zinc-600 rounded-full text-sm"
+          className="p-2 text-black hover:border hover:bg-zinc-600 hover:text-white text-sm"
           onClick={() => {
             const confirmDelete = window.confirm(
               `Are you sure you wish to delete product: ${title} from cart?`,
@@ -97,30 +97,29 @@ export const CartLineItem = ({ product }) => {
         </div>
       </td>
       <td className="w-1/6 text-sm md:text-base">{formattedPriceOneProduct}</td>
-      <td>
-        {quantityIsOne ? (
-          <button title="remove from cart" type="button" onClick={onClick}>
-            <BsTrashFill
-              size={28}
-              className="mx-5  hover:bg-zinc-600 hover:text-white p-1"
-            ></BsTrashFill>
-          </button>
-        ) : (
-          <></>
-        )}
-      </td>
+
       <td className="w-1/6 px-5 md:p-0 text-sm md:text-base md: text-center">
         <div className="border flex flex-col lg:flex-row items-center justify-center">
-          <button
-            type="button"
-            title="Decrease"
-            className="p-4"
-            onClick={() => {
-              alterProduct(id, -1);
-            }}
-          >
-            -
-          </button>
+          {quantityIsOne ? (
+            <button title="remove from cart" type="button" onClick={onClick}>
+              <BsTrashFill
+                size={28}
+                className="mx-5  hover:bg-zinc-600 hover:text-white p-1"
+              ></BsTrashFill>
+            </button>
+          ) : (
+            <button
+              type="button"
+              title="Decrease"
+              className="p-4"
+              onClick={() => {
+                alterProduct(id, -1);
+              }}
+            >
+              -
+            </button>
+          )}
+
           {quantity}
           <button
             type="button"
